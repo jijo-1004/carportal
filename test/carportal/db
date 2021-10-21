@@ -1,0 +1,224 @@
+-- phpMyAdmin SQL Dump
+-- version 3.2.0.1
+-- http://www.phpmyadmin.net
+--
+-- Host: localhost
+-- Generation Time: Jan 19, 2020 at 07:08 AM
+-- Server version: 5.1.36
+-- PHP Version: 5.3.0
+
+SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+
+--
+-- Database: `testdb`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `addcar`
+--
+
+CREATE TABLE IF NOT EXISTS `addcar` (
+  `carid` int(10) NOT NULL COMMENT 'primarykey',
+  `modelname` varchar(25) NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `basicfeatures` varchar(35) NOT NULL,
+  `estamnt` float NOT NULL,
+  PRIMARY KEY (`carid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `addcar`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `book`
+--
+
+CREATE TABLE IF NOT EXISTS `book` (
+  `bookid` varchar(10) NOT NULL,
+  `days` varchar(10) NOT NULL,
+  `carid` varchar(10) NOT NULL COMMENT 'foriegnkey',
+  `status` int(3) NOT NULL,
+  `amt` int(10) NOT NULL,
+  `discount` int(10) NOT NULL,
+  `date` date NOT NULL,
+  PRIMARY KEY (`bookid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `book`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `car1`
+--
+
+CREATE TABLE IF NOT EXISTS `car1` (
+  `mileage` float NOT NULL,
+  `max power` varchar(20) NOT NULL,
+  `fuel type` varchar(20) NOT NULL,
+  `engine type` varchar(20) NOT NULL,
+  `length` varchar(20) NOT NULL,
+  `width` varchar(15) NOT NULL,
+  `height` varchar(15) NOT NULL,
+  `wheel base` varchar(20) NOT NULL,
+  `ground clearance` varchar(20) NOT NULL,
+  `kerb weight` varchar(20) NOT NULL,
+  `doors` varchar(20) NOT NULL,
+  `seating capacity` varchar(20) NOT NULL,
+  `no of seatingrows` varchar(20) NOT NULL,
+  `bootspace` varchar(20) NOT NULL,
+  `fuel tankcapacity` varchar(20) NOT NULL,
+  `wheels` varchar(20) NOT NULL,
+  `sparewheel` varchar(20) NOT NULL,
+  `front tyres` varchar(20) NOT NULL,
+  `rear tyres` varchar(20) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `car1`
+--
+
+INSERT INTO `car1` (`mileage`, `max power`, `fuel type`, `engine type`, `length`, `width`, `height`, `wheel base`, `ground clearance`, `kerb weight`, `doors`, `seating capacity`, `no of seatingrows`, `bootspace`, `fuel tankcapacity`, `wheels`, `sparewheel`, `front tyres`, `rear tyres`) VALUES
+(19.62, '400Nm@1750rpm', 'diesel', 'BMW Twinpower Turbo ', '4633mm', '1811mm', '1429mm', '2810mm', '157mm', '1590mm', '4 doors', '5 person', '2 rows', '480 litres', '57 litres', 'Alloy wheels', 'Alloy', '225/50 R17', '225/50 R17'),
+(13, '350Nm@1450rpm', 'Petrol', 'BMWTwinpower Turbo 3', '4752mm', '1918mm', '1621mm', '2864nm', '200mm', '1820kg', '5doors', '5 persons', '2 rows', '1400litres', '68litres', 'Alloywheels', 'Alloy', '245/50R19', '245/50R19'),
+(13.38, '620Nm@1500rpm', 'Diesel', 'BMWTwinpowerTurbo 4-', '4922mm', '2004mm', '1745mm', '2975mm', '168mm', '1598kg', '5doors', '5 persons', '2 rows', '650 litres', '60litres', 'Alloywheels', 'Alloy', '265/50R19', '265/50R19');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `login`
+--
+
+CREATE TABLE IF NOT EXISTS `login` (
+  `id` varchar(20) NOT NULL,
+  `password` varchar(20) NOT NULL,
+  `type` varchar(20) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `login`
+--
+
+INSERT INTO `login` (`id`, `password`, `type`) VALUES
+('1001', '1004', 'admin'),
+('1002', '1090', 'user'),
+('1003', '9080', 'user'),
+('1004', '6070', 'user');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `ratecar`
+--
+
+CREATE TABLE IF NOT EXISTS `ratecar` (
+  `carid` int(11) NOT NULL,
+  `uid` int(11) NOT NULL,
+  `rating` int(11) NOT NULL,
+  PRIMARY KEY (`carid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `ratecar`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `register`
+--
+
+CREATE TABLE IF NOT EXISTS `register` (
+  `id` int(11) NOT NULL,
+  `Name` text NOT NULL,
+  `address` text NOT NULL,
+  `city` text NOT NULL,
+  `state` text NOT NULL,
+  `phone` text NOT NULL,
+  `dob` date NOT NULL,
+  `email` text NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `register`
+--
+
+INSERT INTO `register` (`id`, `Name`, `address`, `city`, `state`, `phone`, `dob`, `email`) VALUES
+(78, 'abhi', 'kulathil,palathara,thattamala p o,kollam', 'Kollam', 'Kerala', '687989986', '2020-01-12', 'abhi@gmail.com'),
+(3, 'grg', 'kollam', 'kollam', 'india', '11111', '0000-00-00', 'abc@gmail.com'),
+(3, 'grg', 'kollam', 'kollam', 'india', '11111', '0000-00-00', 'abc@gmail.com');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `sregister`
+--
+
+CREATE TABLE IF NOT EXISTS `sregister` (
+  `sid` int(10) NOT NULL,
+  `password` varchar(10) NOT NULL,
+  `username` varchar(15) NOT NULL,
+  `sname` varchar(15) NOT NULL,
+  `phno` varchar(12) NOT NULL,
+  `email` varchar(20) NOT NULL,
+  `address` varchar(35) NOT NULL,
+  PRIMARY KEY (`sid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `sregister`
+--
+
+INSERT INTO `sregister` (`sid`, `password`, `username`, `sname`, `phno`, `email`, `address`) VALUES
+(1, '10002', 'Habees', 'abs', '9895391004', 'habeespalathara@gmai', 'abs,mevaram,mayyanad p o,kollam');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `uploadimg`
+--
+
+CREATE TABLE IF NOT EXISTS `uploadimg` (
+  `carid` int(10) NOT NULL,
+  `imageid` int(10) NOT NULL,
+  PRIMARY KEY (`carid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `uploadimg`
+--
+
+INSERT INTO `uploadimg` (`carid`, `imageid`) VALUES
+(1090, 5876),
+(1045, 6777);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `uploadvidz`
+--
+
+CREATE TABLE IF NOT EXISTS `uploadvidz` (
+  `carid` int(10) NOT NULL,
+  `vid` int(10) NOT NULL,
+  PRIMARY KEY (`carid`)
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `uploadvidz`
+--
+
+INSERT INTO `uploadvidz` (`carid`, `vid`) VALUES
+(1090, 657),
+(1045, 465);
